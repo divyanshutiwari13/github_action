@@ -2,8 +2,6 @@ name: First Workflow # Workflow name
 
 on:
   push: # Trigger workflow on every push
-  schedule:
-    - cron: "* * * * *" # Runs daily at 10 AM UTC
 
 jobs:
   first-job: # Define a job
