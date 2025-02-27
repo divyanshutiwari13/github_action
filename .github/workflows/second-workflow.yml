@@ -1,24 +1,25 @@
-name: First Workflow # Workflow name
+name: Node.js CI  # Workflow name
 
-on: 
-  push: # Trigger workflow on every push
-  pull_request: # Trigger workflow on pull requests
+on:
+  push:
+    branches:
+      - main  # Runs on push to the main branch
 
 jobs:
-  node-job:
-    runs-on: ubuntu-latest
+  node-job:  # Job name
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Fetch the latest code
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22' # Install Node.js 18
+          node-version: '18'  # Install Node.js 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install  # Install project dependencies
 
       - name: Run Tests
-        run: npm test
+        run: npm test  # Run test cases
