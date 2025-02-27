@@ -1,14 +1,17 @@
-name: First Workflow  # Workflow name
+name: First Workflow # Workflow name
 
-on: push  # Trigger workflow on every push
+on:
+  push: # Trigger workflow on every push
+  schedule:
+    - cron: "* * * * *" # Runs daily at 10 AM UTC
 
 jobs:
-  first-job:  # Define a job
-    runs-on: ubuntu-latest  # Use an Ubuntu virtual machine
+  first-job: # Define a job
+    runs-on: ubuntu-latest # Use an Ubuntu virtual machine
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3  # Get the latest code
+        uses: actions/checkout@v3 # Get the latest code
 
       - name: Print Hello World
-        run: echo "Hello, GitHub Actions!"  # Run a command
+        run: echo "Hello, GitHub Actions!" # Run a command
